@@ -6,17 +6,17 @@ namespace FileEncodingChanger
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             string sourceDirectory = @"D:\test";
             string sourcePattern = "*.sql";
 
-            Encode(sourceDirectory, sourcePattern);
+            RecodeFiles(sourceDirectory, sourcePattern);
 
             Console.ReadLine();
         }
 
-        private static async void Encode(string sourceDirectory, string sourcePattern)
+        private static async void RecodeFiles(string sourceDirectory, string sourcePattern)
         {
             int filesCount = 0;
 
@@ -55,9 +55,9 @@ namespace FileEncodingChanger
             }
         }
 
-        private static void PrintPercentOfWork(int filesCount, int filesLength)
+        private static void PrintPercentOfWork(int filesCount, int filesTotal)
         {
-            var percent = filesCount * 100 / filesLength;
+            var percent = filesCount * 100 / filesTotal;
             Console.SetCursorPosition(0, 1);
             Console.WriteLine($"Completed {percent}%");
         }
